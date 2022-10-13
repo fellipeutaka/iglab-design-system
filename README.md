@@ -3,7 +3,7 @@
 </h1>
 
 <h4 align="center"> 
-	:heavy_check_mark: Ignite Lab - Design System 🎮🚀 Done! :heavy_check_mark:
+	:heavy_check_mark: Ignite Lab - Design System 🎨🚀 Done! :heavy_check_mark:
 </h4>
 <p align="center">
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/fellipeutaka/iglab-design-system">
@@ -28,11 +28,11 @@
 <p align="center">
   <a href="#-iglab">Ignite Lab</a>   |   
   <a href="#-project">Project</a>   |   
-  <a href="#rocket-Technologies">Technologies</a>   |   
+  <a href="#-technologies">Technologies</a>   |   
   <a href="#-layout">Layout</a>   |   
-  <a href="#-how-to-use">How to use</a>   |   
+  <a href="#ℹ%EF%B8%8F-how-to-use">How to use</a>   |   
   <a href="#-how-to-contribute">How to contribute</a>   |   
-  <a href="#memo-license">License</a>   |   
+  <a href="#-license">License</a>   |   
   <a href="https://fellipeutaka.github.io/iglab-design-system/?path=/story/components-button--default">Storybook live demo</a>
 </p>
 
