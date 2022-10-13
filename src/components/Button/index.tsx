@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 import { Slot } from "@radix-ui/react-slot";
 import type { VariantProps } from "@stitches/react";
@@ -35,14 +35,19 @@ const cssButton = css({
 
 type StyledButtonVariants = VariantProps<typeof cssButton>;
 
-export interface ButtonProps extends StyledButtonVariants {
-  asChild?: boolean;
-  children: ReactNode;
-  css?: CSS;
-}
+export type ButtonProps = StyledButtonVariants &
+  ButtonHTMLAttributes<HTMLButtonElement> & {
+    asChild?: boolean;
+    children: ReactNode;
+    css?: CSS;
+  };
 
-export function Button({ asChild, css, children }: ButtonProps) {
+export function Button({ asChild, css, children, ...rest }: ButtonProps) {
   const Component = asChild ? Slot : "button";
 
-  return <Component className={cssButton({ css })}>{children}</Component>;
+  return (
+    <Component className={cssButton({ css })} {...rest}>
+      {children}
+    </Component>
+  );
 }

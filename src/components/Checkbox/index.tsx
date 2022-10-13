@@ -34,7 +34,7 @@ export interface CheckboxProps extends CheckboxPrimitive.CheckboxProps {}
 
 export function Checkbox(props: CheckboxProps) {
   return (
-    <Root {...props}>
+    <Root aria-label="Checkbox" {...props}>
       <Indicator>
         <Check weight="bold" size={20} />
       </Indicator>

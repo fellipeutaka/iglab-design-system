@@ -30,8 +30,10 @@ export const Label: StoryObj<CheckboxProps> = {
             id: "checkbox",
           },
         })}
-        <Text size="sm" asChild>
-          <label htmlFor="checkbox">Lembrar de mim</label>
+        <Text size="sm" css={{ cursor: "default" }} asChild>
+          <label id="checkbox-label" htmlFor="checkbox">
+            Lembrar de mim
+          </label>
         </Text>
       </div>
     ),
