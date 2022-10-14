@@ -5,6 +5,7 @@ import { Envelope, Lock } from "phosphor-react";
 import { Button } from "@iglab-design-system/components/Button";
 import { Checkbox } from "@iglab-design-system/components/Checkbox";
 import { Heading } from "@iglab-design-system/components/Heading";
+import { React } from "@iglab-design-system/components/Icons/React";
 import { Text } from "@iglab-design-system/components/Text";
 import * as TextField from "@iglab-design-system/components/TextField";
 
@@ -19,7 +20,7 @@ export function SignIn() {
   return (
     <main className={CSS.Container({})}>
       <header className={CSS.Header({})}>
-        <img src="/react.svg" alt="React logo" height="120" />
+        <React aria-label="React logo" />
         <Heading size="lg" asChild>
           <h1>Ignite Lab</h1>
         </Heading>
