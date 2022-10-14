@@ -1,4 +1,5 @@
-const { mergeConfig } = require("vite");
+const { loadConfigFromFile, mergeConfig } = require("vite");
+const { resolve } = require("node:path");
 
 module.exports = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.tsx"],
@@ -20,23 +21,13 @@ module.exports = {
       config.base = "/iglab-design-system/";
     }
 
+    const { config: userConfig } = await loadConfigFromFile(
+      resolve(__dirname, "../vite.config.ts")
+    );
+
     return mergeConfig(config, {
-      resolve: {
-        alias: [
-          {
-            find: "@iglab-design-system/stitches",
-            replacement: "../stitches.config.ts",
-          },
-          {
-            find: "@iglab-design-system/components",
-            replacement: "../src/components",
-          },
-          {
-            find: "@iglab-design-system/screens",
-            replacement: "../src/screens",
-          },
-        ],
-      },
+      ...userConfig,
+      plugins: [],
     });
   },
 };
