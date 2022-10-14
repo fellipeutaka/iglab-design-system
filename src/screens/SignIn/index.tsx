@@ -1,31 +1,65 @@
-import type { FormEvent } from "react";
+import { FormEvent, useRef, useState } from "react";
 
 import { Envelope, Lock } from "phosphor-react";
 
 import { Button } from "@iglab-design-system/components/Button";
 import { Checkbox } from "@iglab-design-system/components/Checkbox";
 import { Heading } from "@iglab-design-system/components/Heading";
+import { React } from "@iglab-design-system/components/Icons/React";
 import { Text } from "@iglab-design-system/components/Text";
 import * as TextField from "@iglab-design-system/components/TextField";
 
 import * as CSS from "./styles";
 
 export function SignIn() {
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+  const [isUserSignedIn, setIsUserSignedIn] = useState(false);
+
   async function handleSignIn(e: FormEvent) {
     e.preventDefault();
-    alert("😊");
+    if (!emailRef.current?.value.trim()) {
+      emailRef.current?.focus();
+      alert("E-mail é obrigatório!");
+    } else if (!passwordRef.current?.value.trim()) {
+      passwordRef.current?.focus();
+      alert("Senha é obrigatória!");
+    } else {
+      try {
+        await fetch("/api/sessions", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: emailRef.current.value,
+            password: passwordRef.current.value,
+          }),
+        });
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setIsUserSignedIn(true);
+      }
+    }
   }
 
   return (
     <main className={CSS.Container({})}>
       <header className={CSS.Header({})}>
-        <img src="/react.svg" alt="React logo" height="120" />
+        <React aria-label="React logo" />
         <Heading size="lg" asChild>
           <h1>Ignite Lab</h1>
         </Heading>
         <Text color="gray-400" asChild>
           <h2>Faça login e comece a trabalhar!</h2>
         </Text>
+        {isUserSignedIn && (
+          <Text color="gray-400" asChild>
+            <h3>Logado!</h3>
+          </Text>
+        )}
       </header>
       <form className={CSS.Form({})} onSubmit={handleSignIn}>
         <div className={CSS.FormField({})}>
@@ -43,7 +77,11 @@ export function SignIn() {
             <TextField.Icon>
               <Envelope />
             </TextField.Icon>
-            <TextField.Input id="email" placeholder="johndoe@example.com" />
+            <TextField.Input
+              id="email"
+              placeholder="johndoe@example.com"
+              ref={emailRef}
+            />
           </TextField.Root>
         </div>
         <div className={CSS.FormField({})}>
@@ -65,6 +103,7 @@ export function SignIn() {
               id="password"
               type="password"
               placeholder="*************"
+              ref={passwordRef}
             />
           </TextField.Root>
         </div>

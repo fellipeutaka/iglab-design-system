@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes, ReactNode } from "react";
+import { forwardRef, InputHTMLAttributes, ReactNode } from "react";
 
 import { Slot } from "@radix-ui/react-slot";
 
@@ -27,8 +27,10 @@ Icon.displayName = "TextField.Icon";
 export interface TextInputInputProps
   extends InputHTMLAttributes<HTMLInputElement> {}
 
-export function Input(props: TextInputInputProps) {
-  return <input className={Styled.Input({})} {...props} />;
-}
+export const Input = forwardRef<HTMLInputElement, TextInputInputProps>(
+  (props, ref) => {
+    return <input className={Styled.Input({})} ref={ref} {...props} />;
+  }
+);
 
 Input.displayName = "TextField.Input";

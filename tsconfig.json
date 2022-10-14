@@ -22,6 +22,6 @@
       "@iglab-design-system/screens/*": ["./src/screens/*"]
     }
   },
-  "include": ["src", "vite.config.ts"],
+  "include": ["src", "vite.config.ts", "vitest.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
