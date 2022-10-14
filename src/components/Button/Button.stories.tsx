@@ -10,6 +10,20 @@ const meta: Meta<ButtonProps> = {
     asChild: false,
   },
   argTypes: {
+    variant: {
+      options: [0],
+      mapping: ["primary"],
+      control: {
+        type: "select",
+        labels: ["primary"],
+      },
+    },
+    isLoading: {
+      control: "boolean",
+    },
+    outlined: {
+      control: "boolean",
+    },
     asChild: {
       table: {
         disable: true,
@@ -21,6 +35,25 @@ const meta: Meta<ButtonProps> = {
 export default meta;
 
 export const Default: StoryObj<ButtonProps> = {};
+
+export const Outlined: StoryObj<ButtonProps> = {
+  args: {
+    outlined: true,
+    variant: "primary",
+  },
+};
+
+export const Disabled: StoryObj<ButtonProps> = {
+  args: {
+    disabled: true,
+  },
+};
+
+export const Loading: StoryObj<ButtonProps> = {
+  args: {
+    isLoading: true,
+  },
+};
 
 export const CustomComponent: StoryObj<ButtonProps> = {
   args: {

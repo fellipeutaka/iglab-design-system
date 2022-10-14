@@ -14,6 +14,7 @@ import * as CSS from "./styles";
 export function SignIn() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [isUserSignedIn, setIsUserSignedIn] = useState(false);
 
   async function handleSignIn(e: FormEvent) {
@@ -25,6 +26,7 @@ export function SignIn() {
       passwordRef.current?.focus();
       alert("Senha é obrigatória!");
     } else {
+      setIsLoading(true);
       try {
         await fetch("/api/sessions", {
           method: "POST",
@@ -40,7 +42,10 @@ export function SignIn() {
       } catch (err) {
         console.error(err);
       } finally {
-        setIsUserSignedIn(true);
+        setTimeout(() => {
+          setIsUserSignedIn(true);
+          setIsLoading(false);
+        }, 1500);
       }
     }
   }
@@ -120,8 +125,8 @@ export function SignIn() {
             </Text>
           </div>
         </div>
-        <Button asChild>
-          <button type="submit">Entrar na plataforma</button>
+        <Button type="submit" isLoading={isLoading}>
+          Entrar na plataforma
         </Button>
       </form>
       <footer className={CSS.Footer({})}>

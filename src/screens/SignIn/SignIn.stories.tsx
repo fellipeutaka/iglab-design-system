@@ -32,8 +32,13 @@ export const Default: StoryObj = {
     );
     userEvent.type(canvas.getByPlaceholderText("*************"), "12345678");
     userEvent.click(canvas.getByRole("button"));
-    await waitFor(() => {
-      expect(canvas.getByText("Logado!")).toBeVisible();
-    });
+    await waitFor(
+      () => {
+        expect(canvas.getByText("Logado!")).toBeVisible();
+      },
+      {
+        timeout: 3000, // 3 seconds,
+      }
+    );
   },
 };
