@@ -1,5 +1,4 @@
 const { mergeConfig } = require("vite");
-const { resolve } = require("node:path");
 
 module.exports = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.tsx"],
@@ -26,7 +25,15 @@ module.exports = {
         alias: [
           {
             find: "@iglab-design-system/stitches",
-            replacement: resolve(__dirname, "stitches.config.ts"),
+            replacement: "../stitches.config.ts",
+          },
+          {
+            find: "@iglab-design-system/components",
+            replacement: "../src/components",
+          },
+          {
+            find: "@iglab-design-system/screens",
+            replacement: "../src/screens",
           },
         ],
       },

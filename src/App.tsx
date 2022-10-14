@@ -1,6 +1,5 @@
+import { SignIn } from "@iglab-design-system/screens/SignIn";
 import { globalCSS } from "@iglab-design-system/stitches";
-
-import { SignIn } from "./screens/SignIn";
 
 export function App() {
   globalCSS();

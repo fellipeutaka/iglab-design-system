@@ -1,8 +1,7 @@
-import { createStitches } from "@stitches/react";
-import type * as Stitches from "@stitches/react";
+import { createStitches } from "@stitches/core";
+import type * as Stitches from "@stitches/core";
 
 export const {
-  styled,
   css,
   globalCss,
   keyframes,

@@ -14,6 +14,10 @@ export default defineConfig({
         find: "@iglab-design-system/components",
         replacement: resolve(__dirname, "./src/components"),
       },
+      {
+        find: "@iglab-design-system/screens",
+        replacement: resolve(__dirname, "./src/screens"),
+      },
     ],
   },
 });

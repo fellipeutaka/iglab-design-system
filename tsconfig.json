@@ -18,7 +18,8 @@
     "baseUrl": ".",
     "paths": {
       "@iglab-design-system/stitches": ["./stitches.config.ts"],
-      "@iglab-design-system/components/*": ["./src/components/*"]
+      "@iglab-design-system/components/*": ["./src/components/*"],
+      "@iglab-design-system/screens/*": ["./src/screens/*"]
     }
   },
   "include": ["src", "vite.config.ts"],
