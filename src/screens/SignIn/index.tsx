@@ -30,7 +30,14 @@ export function SignIn() {
       </header>
       <form className={CSS.Form({})} onSubmit={handleSignIn}>
         <div className={CSS.FormField({})}>
-          <Text css={{ fontWeight: "600" }} asChild>
+          <Text
+            asChild
+            css={{
+              fontWeight: "600",
+              userSelect: "none",
+              width: "max-content",
+            }}
+          >
             <label htmlFor="email">E-mail</label>
           </Text>
           <TextField.Root>
@@ -41,7 +48,14 @@ export function SignIn() {
           </TextField.Root>
         </div>
         <div className={CSS.FormField({})}>
-          <Text css={{ fontWeight: "600" }} asChild>
+          <Text
+            asChild
+            css={{
+              fontWeight: "600",
+              userSelect: "none",
+              width: "max-content",
+            }}
+          >
             <label htmlFor="password">Senha</label>
           </Text>
           <TextField.Root>
@@ -58,7 +72,12 @@ export function SignIn() {
         <div className={CSS.FormField({})}>
           <div className={CSS.CheckboxContainer({})}>
             <Checkbox id="checkbox" />
-            <Text asChild size="sm" color="gray-200">
+            <Text
+              asChild
+              size="sm"
+              color="gray-200"
+              css={{ userSelect: "none" }}
+            >
               <label htmlFor="checkbox">Lembrar de mim</label>
             </Text>
           </div>
