@@ -33,6 +33,28 @@ export const FormField = css({
   gap: "$3",
 });
 
+export const EyeButton = css({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  background: "transparent",
+  border: "none",
+  outline: "none",
+  cursor: "pointer",
+  transition: "box-shadow 0.2s ease, opacity 0.2s ease",
+  "&:focus-visible": {
+    $$shadowColor: "$colors$cyan-500",
+    boxShadow: "$$shadowColor 0px 0px 0px 2px",
+  },
+  "&[aria-pressed='false']": {
+    opacity: 0.3,
+  },
+  "& svg": {
+    height: "20px",
+    width: "20px",
+  },
+});
+
 export const CheckboxContainer = css({
   display: "flex",
   alignItems: "center",

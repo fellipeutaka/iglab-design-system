@@ -31,7 +31,7 @@ export const Default: StoryObj = {
       "fellipeutaka@gmail.com"
     );
     userEvent.type(canvas.getByPlaceholderText("*************"), "12345678");
-    userEvent.click(canvas.getByRole("button"));
+    userEvent.click(canvas.getByText("Entrar na plataforma"));
     await waitFor(
       () => {
         expect(canvas.getByText("Logado!")).toBeVisible();

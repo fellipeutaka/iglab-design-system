@@ -1,6 +1,6 @@
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useRef, useState, useMemo } from "react";
 
-import { Envelope, Lock } from "phosphor-react";
+import { Envelope, Eye, EyeSlash, Lock } from "phosphor-react";
 
 import { Button } from "@iglab-design-system/components/Button";
 import { Checkbox } from "@iglab-design-system/components/Checkbox";
@@ -16,6 +16,7 @@ export function SignIn() {
   const passwordRef = useRef<HTMLInputElement>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isUserSignedIn, setIsUserSignedIn] = useState(false);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   async function handleSignIn(e: FormEvent) {
     e.preventDefault();
@@ -49,6 +50,15 @@ export function SignIn() {
       }
     }
   }
+
+  function handleTogglePasswordVisibility() {
+    setIsPasswordVisible((state) => !state);
+  }
+
+  const EyeIcon = useMemo(
+    () => (isPasswordVisible ? <EyeSlash /> : <Eye />),
+    [isPasswordVisible]
+  );
 
   return (
     <main className={CSS.Container({})}>
@@ -106,10 +116,21 @@ export function SignIn() {
             </TextField.Icon>
             <TextField.Input
               id="password"
-              type="password"
+              type={isPasswordVisible ? "text" : "password"}
               placeholder="*************"
               ref={passwordRef}
             />
+            <TextField.Icon>
+              <button
+                type="button"
+                onClick={handleTogglePasswordVisibility}
+                className={CSS.EyeButton({})}
+                aria-pressed={!isPasswordVisible}
+                title={isPasswordVisible ? "Ocultar senha" : "Exibir senha"}
+              >
+                {EyeIcon}
+              </button>
+            </TextField.Icon>
           </TextField.Root>
         </div>
         <div className={CSS.FormField({})}>
