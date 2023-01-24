@@ -68,6 +68,8 @@ This project was developed with the following technologies:
 - [Storybook][storybook]
 - [Stitches][stitches]
 - [Radix][radix]
+- [Jest][jest]
+- [MSW (Mock Service Worker)][msw]
 
 ## 🔖 Layout
 
@@ -133,5 +135,7 @@ Made with ♥ by Fellipe Utaka 👋 [Get in touch!](https://www.linkedin.com/in/
 [storybook]: https://storybook.js.org/
 [stitches]: https://stitches.dev/
 [radix]: https://www.radix-ui.com/
+[jest]: https://jestjs.io/
+[msw]: https://mswjs.io/
 [git]: https://git-scm.com
 [yarn]: https://yarnpkg.com/
