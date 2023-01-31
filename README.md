@@ -2,8 +2,8 @@
     <img alt="Ignite logo" title="#iglab" src=".github/ignite.svg" width="250px" />
 </h1>
 
-<h4 align="center"> 
-	:heavy_check_mark: Ignite Lab - Design System 🎨🚀 Done! :heavy_check_mark:
+<h1 align="center"> 
+	Ignite Lab - Design System
 </h4>
 <p align="center">
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/fellipeutaka/iglab-design-system">
